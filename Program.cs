@@ -114,47 +114,71 @@
 // }
 
 // Задача 19. Напишите програму, которая принимает на вход пятизначное число и проверяет, является ли оно палиндромом.
+// System.Console.WriteLine("Задача 19. Напишите програму, которая принимает на вход пятизначное число и проверяет, является ли оно палиндромом.");
+// System.Console.Write("Введите пятизначное число: ");
+// int drom = int.Parse(Console.ReadLine()!);
+// if(drom > 9999 && drom < 100000)
+// {
+//     if(drom/10000 == drom%10 && (drom/1000 - (drom/10000)*10) == ((drom%100 - drom%10)/10))
+//     {
+//         System.Console.WriteLine($"Число {drom} является палиндромом");
+//     }
+//     else
+//     {
+//         System.Console.WriteLine($"Число {drom} не является палиндромом");
+//     }
+// }
+// else
+// {
+//     System.Console.WriteLine("Ошибка!Число должно содержать пять знаков");
+// }
+
+// Второй способ - через преобразование в строковый тип
 System.Console.WriteLine("Задача 19. Напишите програму, которая принимает на вход пятизначное число и проверяет, является ли оно палиндромом.");
 System.Console.Write("Введите пятизначное число: ");
-int drom = int.Parse(Console.ReadLine()!);
-if(drom > 9999 && drom < 100000)
+int drom1 = int.Parse(Console.ReadLine()!);
+string StrNum = drom1.ToString();
+if (StrNum.Length == 5)
 {
-    if(drom/10000 == drom%10 && (drom/1000 - (drom/10000)*10) == ((drom%100 - drom%10)/10))
+    if (StrNum[0] == StrNum[4] && StrNum[1] == StrNum[3])
     {
-        System.Console.WriteLine($"Число {drom} является палиндромом");
+        System.Console.WriteLine("Это палиндром!");
     }
     else
     {
-        System.Console.WriteLine($"Число {drom} не является палиндромом");
+        System.Console.WriteLine("Это не палиндром!");
     }
 }
 else
 {
-    System.Console.WriteLine("Ошибка!Число должно содержать пять знаков");
+    System.Console.WriteLine("Введено неверное число!");
 }
 
-// Задача 21. Напишите программу, которая принимает на вход координаты двух точек и находит расстояние между ними в 3D пространстве.
-System.Console.WriteLine("Задача 21. Напишите программу, которая принимает на вход координаты двух точек и находит расстояние между ними в 3D пространстве");
-System.Console.Write("Введите координату X точки А: ");
-int x1 = int.Parse(Console.ReadLine()!);
-System.Console.Write("Введите координату Y точки А: ");
-int y1 = int.Parse(Console.ReadLine()!);
-System.Console.Write("Введите координату Z точки А: ");
-int z1 = int.Parse(Console.ReadLine()!);
-System.Console.Write("Введите координату X точки B: ");
-int x2 = int.Parse(Console.ReadLine()!);
-System.Console.Write("Введите координату Y точки B: ");
-int y2 = int.Parse(Console.ReadLine()!);
-System.Console.Write("Введите координату Z точки B: ");
-int z2 = int.Parse(Console.ReadLine()!);
-double dist = Math.Round(Math.Sqrt(Math.Pow((x1 - x2), 2) + Math.Pow((y1 - y2), 2) + Math.Pow((z1 - z2), 2)), 2);
-System.Console.WriteLine($"Расстояние между точками A и B в 3D пространстве равно {dist}");
 
-// Задача 23. Напишите программу, которая принимает на вход число (N) и выдает таблицу кубов чисел от 1 до N.
-System.Console.WriteLine("Задача 23. Напишите программу, которая принимает на вход число (N) и выдает таблицу кубов чисел от 1 до N");
-System.Console.Write("Введите натуральное число: ");
-int N = int.Parse(Console.ReadLine()!);
-for(int i = 1; i <= N; i++)
-{
-    System.Console.Write(Math.Pow(i, 3) + " ");
-}
+
+
+// // Задача 21. Напишите программу, которая принимает на вход координаты двух точек и находит расстояние между ними в 3D пространстве.
+// System.Console.WriteLine("Задача 21. Напишите программу, которая принимает на вход координаты двух точек и находит расстояние между ними в 3D пространстве");
+// System.Console.Write("Введите координату X точки А: ");
+// int x1 = int.Parse(Console.ReadLine()!);
+// System.Console.Write("Введите координату Y точки А: ");
+// int y1 = int.Parse(Console.ReadLine()!);
+// System.Console.Write("Введите координату Z точки А: ");
+// int z1 = int.Parse(Console.ReadLine()!);
+// System.Console.Write("Введите координату X точки B: ");
+// int x2 = int.Parse(Console.ReadLine()!);
+// System.Console.Write("Введите координату Y точки B: ");
+// int y2 = int.Parse(Console.ReadLine()!);
+// System.Console.Write("Введите координату Z точки B: ");
+// int z2 = int.Parse(Console.ReadLine()!);
+// double dist = Math.Round(Math.Sqrt(Math.Pow((x1 - x2), 2) + Math.Pow((y1 - y2), 2) + Math.Pow((z1 - z2), 2)), 2);
+// System.Console.WriteLine($"Расстояние между точками A и B в 3D пространстве равно {dist}");
+
+// // Задача 23. Напишите программу, которая принимает на вход число (N) и выдает таблицу кубов чисел от 1 до N.
+// System.Console.WriteLine("Задача 23. Напишите программу, которая принимает на вход число (N) и выдает таблицу кубов чисел от 1 до N");
+// System.Console.Write("Введите натуральное число: ");
+// int N = int.Parse(Console.ReadLine()!);
+// for(int i = 1; i <= N; i++)
+// {
+//     System.Console.Write(Math.Pow(i, 3) + " ");
+// }
