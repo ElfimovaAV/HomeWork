@@ -134,25 +134,25 @@
 // }
 
 // Второй способ - через преобразование в строковый тип
-System.Console.WriteLine("Задача 19. Напишите програму, которая принимает на вход пятизначное число и проверяет, является ли оно палиндромом.");
-System.Console.Write("Введите пятизначное число: ");
-int drom1 = int.Parse(Console.ReadLine()!);
-string StrNum = drom1.ToString();
-if (StrNum.Length == 5)
-{
-    if (StrNum[0] == StrNum[4] && StrNum[1] == StrNum[3])
-    {
-        System.Console.WriteLine("Это палиндром!");
-    }
-    else
-    {
-        System.Console.WriteLine("Это не палиндром!");
-    }
-}
-else
-{
-    System.Console.WriteLine("Введено неверное число!");
-}
+// System.Console.WriteLine("Задача 19. Напишите програму, которая принимает на вход пятизначное число и проверяет, является ли оно палиндромом.");
+// System.Console.Write("Введите пятизначное число: ");
+// int drom1 = int.Parse(Console.ReadLine()!);
+// string StrNum = drom1.ToString();
+// if (StrNum.Length == 5)
+// {
+//     if (StrNum[0] == StrNum[4] && StrNum[1] == StrNum[3])
+//     {
+//         System.Console.WriteLine("Это палиндром!");
+//     }
+//     else
+//     {
+//         System.Console.WriteLine("Это не палиндром!");
+//     }
+// }
+// else
+// {
+//     System.Console.WriteLine("Введено неверное число!");
+// }
 
 
 
@@ -174,7 +174,7 @@ else
 // double dist = Math.Round(Math.Sqrt(Math.Pow((x1 - x2), 2) + Math.Pow((y1 - y2), 2) + Math.Pow((z1 - z2), 2)), 2);
 // System.Console.WriteLine($"Расстояние между точками A и B в 3D пространстве равно {dist}");
 
-// // Задача 23. Напишите программу, которая принимает на вход число (N) и выдает таблицу кубов чисел от 1 до N.
+// Задача 23. Напишите программу, которая принимает на вход число (N) и выдает таблицу кубов чисел от 1 до N.
 // System.Console.WriteLine("Задача 23. Напишите программу, которая принимает на вход число (N) и выдает таблицу кубов чисел от 1 до N");
 // System.Console.Write("Введите натуральное число: ");
 // int N = int.Parse(Console.ReadLine()!);
@@ -182,3 +182,57 @@ else
 // {
 //     System.Console.Write(Math.Pow(i, 3) + " ");
 // }
+
+// Задача 25. Напишите цикл, который принимает на вход два числа (A и B) и возводит число A в натуральную степень B.
+System.Console.WriteLine("Задача 25. Напишите цикл, который принимает на вход два числа (A и B) и возводит число A в натуральную степень B.");
+System.Console.Write("Введите первое число: ");
+int A = int.Parse(Console.ReadLine()!);
+System.Console.Write("Введите второе число: ");
+int B = int.Parse(Console.ReadLine()!);
+System.Console.WriteLine($"Число {A} в степени {B} равно {GetDegree(A, B)}");
+
+// ---------------Методы-----------------
+int GetDegree (int n1, int n2)
+{
+    int degree = 1;
+    for(int count = 1; count <= n2; count++)
+    {
+        degree = degree * n1;
+    }
+    return degree;
+}
+
+
+// Задача 27. Написать программу, которая принимает на вход число и выдает сумму цифр в числе.
+System.Console.WriteLine("Задача 27. Написать программу, которая принимает на вход число и выдает сумму цифр в числе");
+System.Console.Write("Введите число: ");
+int F = int.Parse(Console.ReadLine()!);
+System.Console.WriteLine($"Сумма цифр в числе {F} равна {GetNumberSum(F)}");
+
+// ---------------Методы-----------------
+int GetNumberSum (int nmb)
+{
+    int sum = 0;
+    for (int n = nmb; n > 0; n = n / 10)
+    {
+        sum = sum + n % 10;
+    }
+    return sum;
+}
+
+// Задача 29. Напишите программу, которая задаёт массив из 8 любых элементов и выводит их на экран
+System.Console.WriteLine("Задача 29. Напишите программу, которая задаёт массив из 8 любых элементов и выводит их на экран");
+int[] Array = GetArray(8);
+System.Console.WriteLine($"[{String.Join(";", Array)}]");
+
+
+// ----------Метод----------
+int[] GetArray (int size)
+{
+    int[] result = new int[size];
+    for(int i = 0; i < size; i++)
+    {
+        result[i] = new Random().Next(0, 1000);
+    }
+    return result;
+}
