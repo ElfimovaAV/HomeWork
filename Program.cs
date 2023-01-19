@@ -184,55 +184,168 @@
 // }
 
 // Задача 25. Напишите цикл, который принимает на вход два числа (A и B) и возводит число A в натуральную степень B.
-System.Console.WriteLine("Задача 25. Напишите цикл, который принимает на вход два числа (A и B) и возводит число A в натуральную степень B.");
-System.Console.Write("Введите первое число: ");
-int A = int.Parse(Console.ReadLine()!);
-System.Console.Write("Введите второе число: ");
-int B = int.Parse(Console.ReadLine()!);
-System.Console.WriteLine($"Число {A} в степени {B} равно {GetDegree(A, B)}");
+// System.Console.WriteLine("Задача 25. Напишите цикл, который принимает на вход два числа (A и B) и возводит число A в натуральную степень B.");
+// System.Console.Write("Введите первое число: ");
+// int A = int.Parse(Console.ReadLine()!);
+// System.Console.Write("Введите второе число: ");
+// int B = int.Parse(Console.ReadLine()!);
+// System.Console.WriteLine($"Число {A} в степени {B} равно {GetDegree(A, B)}");
 
-// ---------------Методы-----------------
-int GetDegree (int n1, int n2)
-{
-    int degree = 1;
-    for(int count = 1; count <= n2; count++)
-    {
-        degree = degree * n1;
-    }
-    return degree;
-}
+// // ---------------Методы-----------------
+// int GetDegree (int n1, int n2)
+// {
+//     int degree = 1;
+//     for(int count = 1; count <= n2; count++)
+//     {
+//         degree = degree * n1;
+//     }
+//     return degree;
+// }
 
 
 // Задача 27. Написать программу, которая принимает на вход число и выдает сумму цифр в числе.
-System.Console.WriteLine("Задача 27. Написать программу, которая принимает на вход число и выдает сумму цифр в числе");
-System.Console.Write("Введите число: ");
-int F = int.Parse(Console.ReadLine()!);
-System.Console.WriteLine($"Сумма цифр в числе {F} равна {GetNumberSum(F)}");
+// System.Console.WriteLine("Задача 27. Написать программу, которая принимает на вход число и выдает сумму цифр в числе");
+// System.Console.Write("Введите число: ");
+// int F = int.Parse(Console.ReadLine()!);
+// System.Console.WriteLine($"Сумма цифр в числе {F} равна {GetNumberSum(F)}");
 
-// ---------------Методы-----------------
-int GetNumberSum (int nmb)
+// // ---------------Методы-----------------
+// int GetNumberSum (int nmb)
+// {
+//     int sum = 0;
+//     for (int n = nmb; n > 0; n = n / 10)
+//     {
+//         sum = sum + n % 10;
+//     }
+//     return sum;
+// }
+
+// Задача 29. Напишите программу, которая задаёт массив из 8 любых элементов и выводит их на экран
+// System.Console.WriteLine("Задача 29. Напишите программу, которая задаёт массив из 8 любых элементов и выводит их на экран");
+// int[] Array = GetArray(8);
+// System.Console.WriteLine($"[{String.Join(";", Array)}]");
+
+
+// // ----------Метод----------
+// int[] GetArray (int size)
+// {
+//     int[] result = new int[size];
+//     for(int i = 0; i < size; i++)
+//     {
+//         result[i] = new Random().Next(0, 1000);
+//     }
+//     return result;
+// }
+
+// Задача 34: Задайте массив заполненный случайными положительными трёхзначными числами. Напишите программу, которая покажет количество чётных чисел в массиве.
+
+// [345, 897, 568, 234] -> 2
+
+System.Console.WriteLine("Задача 34: Задайте массив заполненный случайными положительными трёхзначными числами. Напишите программу, которая покажет количество чётных чисел в массиве.");
+int[] arr4 = GetArray(10);
+System.Console.WriteLine($"[{String.Join(", ", arr4)}]");
+System.Console.WriteLine($"Количество четных чисел в массиве равно {GetCountPositive(arr4)}");
+
+// -----------Методы------------
+int[] GetArray(int size)
+{
+    int[] array = new int[size];
+    for(int i = 0; i < size; i++)
+    {
+        array[i] = new Random().Next(100, 1000);
+    }
+    return array;
+}
+
+int GetCountPositive(int[] array)
+{
+    int count = 0;
+    for(int i = 1; i < array.Length; i++)
+    {
+        if(array[i]%2 == 0)
+        {
+            count += 1;
+        }
+    }
+    return count;
+}
+
+// Задача 36: Задайте одномерный массив, заполненный случайными числами. Найдите сумму элементов, стоящих на нечётных индексах.
+
+// [3, 7, 23, 12] -> 19
+
+// [-4, -6, 89, 6] -> 0
+
+System.Console.WriteLine("Задача 36: Задайте одномерный массив, заполненный случайными числами. Найдите сумму элементов, стоящих на нечётных индексах.");
+int[] arr5 = GetArray2(10);
+System.Console.WriteLine($"[{String.Join(", ", arr5)}]");
+System.Console.WriteLine($"Сумма элементов, стоящих на нечетных индексах равна {GetSumOddElements(arr5)}");
+
+// -----------Методы------------
+int[] GetArray2(int size)
+{
+    int[] array = new int[size];
+    for(int i = 0; i < size; i++)
+    {
+        array[i] = new Random().Next(0, 10001);
+    }
+    return array;
+}
+
+int GetSumOddElements(int[] array)
 {
     int sum = 0;
-    for (int n = nmb; n > 0; n = n / 10)
+    for(int i = 0; i < array.Length; i++)
     {
-        sum = sum + n % 10;
+        if(i%2 > 0)
+        {
+            sum = sum + array[i];
+        }
     }
     return sum;
 }
 
-// Задача 29. Напишите программу, которая задаёт массив из 8 любых элементов и выводит их на экран
-System.Console.WriteLine("Задача 29. Напишите программу, которая задаёт массив из 8 любых элементов и выводит их на экран");
-int[] Array = GetArray(8);
-System.Console.WriteLine($"[{String.Join(";", Array)}]");
+// Задача 37: Найдите произведение пар чисел в одномерном массиве. Парой считаем первый и последний элемент, второй и предпоследний и т.д. Результат запишите в новом массиве.
+
+// [1 2 3 4 5] -> 5 8 3
+
+// [6 7 3 6] -> 36 21
+
+System.Console.WriteLine("Задача 37: Найдите произведение пар чисел в одномерном массиве. Парой считаем первый и последний элемент, второй и предпоследний и т.д. Результат запишите в новом массиве.");
+int[] arr6 = GetArray3(7);
+System.Console.WriteLine($"[{String.Join(", ", arr6)}]");
+System.Console.WriteLine($"[{String.Join(", ", GetProduct(arr6))}]");
 
 
-// ----------Метод----------
-int[] GetArray (int size)
+
+//---------Методы-------------
+int[] GetArray3(int size)
 {
-    int[] result = new int[size];
+    int[] array = new int[size];
     for(int i = 0; i < size; i++)
     {
-        result[i] = new Random().Next(0, 1000);
+        array[i] = new Random().Next(0, 1001);
     }
-    return result;
+    return array;
+}
+
+int[] GetProduct (int[] array)
+{
+    double N = array.Length;
+    double R = Math.Round(N / 2, MidpointRounding.AwayFromZero);
+    int N1 = Convert.ToInt32(N);
+    int R1 = Convert.ToInt32(R);
+    int[] array2 = new int[R1];
+    for(int i = 0; i < R1; i++)
+    {
+        if(i != (N1 - i - 1))
+        {
+            array2[i] = array[i] * array[N1 - i - 1];
+        }
+        else
+        {
+            array2[i] = array[i];
+        }
+    }
+    return array2;
 }
