@@ -202,6 +202,25 @@
 //     return degree;
 // }
 
+// Способ 2.
+// System.Console.Write("Введите первое число: ");
+// int A = int.Parse(Console.ReadLine()!);
+// System.Console.Write("Введите второе число: ");
+// int B = int.Parse(Console.ReadLine()!);
+// System.Console.WriteLine($"Число {A} в степени {B} равно {Pow(A, B)}");
+
+// // ---------------Методы-----------------
+// int Pow (int num, int rank)
+// {
+//     if (rank == 0) return 1;
+//     int result = num;
+//     for(int i = 2; i <= rank; i++)
+//     {
+//         result *= num;
+//     }
+//     return result;
+// }
+
 
 // Задача 27. Написать программу, которая принимает на вход число и выдает сумму цифр в числе.
 // System.Console.WriteLine("Задача 27. Написать программу, которая принимает на вход число и выдает сумму цифр в числе");
@@ -241,111 +260,208 @@
 
 // [345, 897, 568, 234] -> 2
 
-System.Console.WriteLine("Задача 34: Задайте массив заполненный случайными положительными трёхзначными числами. Напишите программу, которая покажет количество чётных чисел в массиве.");
-int[] arr4 = GetArray(10);
-System.Console.WriteLine($"[{String.Join(", ", arr4)}]");
-System.Console.WriteLine($"Количество четных чисел в массиве равно {GetCountPositive(arr4)}");
+// System.Console.WriteLine("Задача 34: Задайте массив заполненный случайными положительными трёхзначными числами. Напишите программу, которая покажет количество чётных чисел в массиве.");
+// int[] arr4 = GetArray(10);
+// System.Console.WriteLine($"[{String.Join(", ", arr4)}]");
+// System.Console.WriteLine($"Количество четных чисел в массиве равно {GetCountPositive(arr4)}");
 
-// -----------Методы------------
-int[] GetArray(int size)
-{
-    int[] array = new int[size];
-    for(int i = 0; i < size; i++)
-    {
-        array[i] = new Random().Next(100, 1000);
-    }
-    return array;
-}
+// // -----------Методы------------
+// int[] GetArray(int size)
+// {
+//     int[] array = new int[size];
+//     for(int i = 0; i < size; i++)
+//     {
+//         array[i] = new Random().Next(100, 1000);
+//     }
+//     return array;
+// }
 
-int GetCountPositive(int[] array)
-{
-    int count = 0;
-    for(int i = 1; i < array.Length; i++)
-    {
-        if(array[i]%2 == 0)
-        {
-            count += 1;
-        }
-    }
-    return count;
-}
+// int GetCountPositive(int[] array)
+// {
+//     int count = 0;
+//     for(int i = 1; i < array.Length; i++)
+//     {
+//         if(array[i]%2 == 0)
+//         {
+//             count += 1;
+//         }
+//     }
+//     return count;
+// }
 
-// Задача 36: Задайте одномерный массив, заполненный случайными числами. Найдите сумму элементов, стоящих на нечётных индексах.
+//  Способ 2 прописать метод подсчета четных чисел
+// int GetCountPositive(int[] array)
+// {
+//     int count = 0;
+//     foreach (var item in array)
+//     {
+//         if(item % 2 == 0)
+//         {
+//             count += 1;
+//         }
+//     }
+//     return count;
+// }
 
-// [3, 7, 23, 12] -> 19
+// // Задача 36: Задайте одномерный массив, заполненный случайными числами. Найдите сумму элементов, стоящих на нечётных индексах.
 
-// [-4, -6, 89, 6] -> 0
+// // [3, 7, 23, 12] -> 19
 
-System.Console.WriteLine("Задача 36: Задайте одномерный массив, заполненный случайными числами. Найдите сумму элементов, стоящих на нечётных индексах.");
-int[] arr5 = GetArray2(10);
-System.Console.WriteLine($"[{String.Join(", ", arr5)}]");
-System.Console.WriteLine($"Сумма элементов, стоящих на нечетных индексах равна {GetSumOddElements(arr5)}");
+// // [-4, -6, 89, 6] -> 0
 
-// -----------Методы------------
-int[] GetArray2(int size)
-{
-    int[] array = new int[size];
-    for(int i = 0; i < size; i++)
-    {
-        array[i] = new Random().Next(0, 10001);
-    }
-    return array;
-}
+// System.Console.WriteLine("Задача 36: Задайте одномерный массив, заполненный случайными числами. Найдите сумму элементов, стоящих на нечётных индексах.");
+// int[] arr5 = GetArray2(10);
+// System.Console.WriteLine($"[{String.Join(", ", arr5)}]");
+// System.Console.WriteLine($"Сумма элементов, стоящих на нечетных индексах равна {GetSumOddElements(arr5)}");
 
-int GetSumOddElements(int[] array)
-{
-    int sum = 0;
-    for(int i = 0; i < array.Length; i++)
-    {
-        if(i%2 > 0)
-        {
-            sum = sum + array[i];
-        }
-    }
-    return sum;
-}
+// // -----------Методы------------
+// int[] GetArray2(int size)
+// {
+//     int[] array = new int[size];
+//     for(int i = 0; i < size; i++)
+//     {
+//         array[i] = new Random().Next(0, 10001);
+//     }
+//     return array;
+// }
 
-// Задача 37: Найдите произведение пар чисел в одномерном массиве. Парой считаем первый и последний элемент, второй и предпоследний и т.д. Результат запишите в новом массиве.
+// int GetSumOddElements(int[] array)
+// {
+//     int sum = 0;
+//     for(int i = 0; i < array.Length; i++)
+//     {
+//         if(i%2 > 0)
+//         {
+//             sum = sum + array[i];
+//         }
+//     }
+//     return sum;
+// }
 
-// [1 2 3 4 5] -> 5 8 3
+// // Задача 37: Найдите произведение пар чисел в одномерном массиве. Парой считаем первый и последний элемент, второй и предпоследний и т.д. Результат запишите в новом массиве.
 
-// [6 7 3 6] -> 36 21
+// // [1 2 3 4 5] -> 5 8 3
 
-System.Console.WriteLine("Задача 37: Найдите произведение пар чисел в одномерном массиве. Парой считаем первый и последний элемент, второй и предпоследний и т.д. Результат запишите в новом массиве.");
-int[] arr6 = GetArray3(7);
-System.Console.WriteLine($"[{String.Join(", ", arr6)}]");
-System.Console.WriteLine($"[{String.Join(", ", GetProduct(arr6))}]");
+// // [6 7 3 6] -> 36 21
+
+// System.Console.WriteLine("Задача 37: Найдите произведение пар чисел в одномерном массиве. Парой считаем первый и последний элемент, второй и предпоследний и т.д. Результат запишите в новом массиве.");
+// int[] arr6 = GetArray3(6);
+// System.Console.WriteLine($"[{String.Join(", ", arr6)}]");
+// System.Console.WriteLine($"[{String.Join(", ", GetProduct(arr6))}]");
 
 
 
 //---------Методы-------------
-int[] GetArray3(int size)
+// int[] GetArray3(int size)
+// {
+//     int[] array = new int[size];
+//     for(int i = 0; i < size; i++)
+//     {
+//         array[i] = new Random().Next(0, 1001);
+//     }
+//     return array;
+// }
+
+// int[] GetProduct (int[] array)
+// {
+//     double N = array.Length;
+//     double R = Math.Round(N / 2, MidpointRounding.AwayFromZero);
+//     int N1 = Convert.ToInt32(N);
+//     int R1 = Convert.ToInt32(R);
+//     int[] array2 = new int[R1];
+//     for(int i = 0; i < R1; i++)
+//     {
+//         if(i != (N1 - i - 1))
+//         {
+//             array2[i] = array[i] * array[N1 - i - 1];
+//         }
+//         else
+//         {
+//             array2[i] = array[i];
+//         }
+//     }
+//     return array2;
+// }
+// Способ 2 наполнения массива
+// int[] GetProduct (int[] array)
+// {
+//     int size = array.Length / 2;
+//     if (array.Length % 2 == 1)
+//     {
+//         size ++;
+//     }
+//     int[] array2 = new int[size];
+//     for(int i = 0; i < array.Length / 2; i++)
+//     {
+//         array2[i] = array[i] * array[array.Length - i - 1];
+//     }
+//     if (array.Length % 2 == 1)
+//     {
+//         array2[size - 1] = array[array.Length / 2];
+//     }
+//     return array2;
+// }
+// Задача 41: Пользователь вводит с клавиатуры M чисел. Посчитайте, сколько чисел строго больше 0 ввёл пользователь.
+// 0, 7, 8, -2, -2 -> 2
+// 1, -7, 567, 89, 223-> 4
+// Для строки можно использовать данный метод string[] numS = stringArray.Split(' ', StringSplitOptions.RemoveEmptyEntries) 
+// (пользователь вводит в консоли числа через пробел и они формируют строку)
+
+System.Console.WriteLine("Задача 41: Пользователь вводит с клавиатуры M чисел. Посчитайте, сколько чисел строго больше 0 ввёл пользователь.");
+System.Console.Write("Введите несколько чисел через пробел: ");
+string numbers = Console.ReadLine()!;
+FindEven (numbers);
+
+// -----Методы---------
+void FindEven (string input)
 {
-    int[] array = new int[size];
-    for(int i = 0; i < size; i++)
+    string[] array = input.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+    int count = 0;
+    for (int i = 0; i < array.Length; i++)
     {
-        array[i] = new Random().Next(0, 1001);
+        if (Convert.ToInt32(Convert.ToString(array[i])) > 0)
+        {
+         count ++;
+        }
     }
-    return array;
+    System.Console.WriteLine($"Количество чисел больше нуля {count}");
 }
 
-int[] GetProduct (int[] array)
+//  Задача 43: Написать программу, которая на вход принимает массив из любого количества элементов 
+//  (не менее 6) в промежутке от 0 до 100, а на выходе выводит этот же массив, 
+//  но отсортированный по возрастанию(от меньшего числа к большему).
+
+System.Console.WriteLine("Задача 43: Написать программу, которая на вход принимает массив из любого количества элементов (не менее 6) в промежутке от 0 до 100, а на выходе выводит этот же массив, но отсортированный по возрастанию(от меньшего числа к большему).");
+int[] arr = GetArray2(10, 0, 100);
+System.Console.WriteLine($"[{String.Join(",", arr)}]");
+SortingArray (arr);
+
+
+
+// -----------Методы------------
+int[] GetArray2(int size, int minValue, int maxValue)
 {
-    double N = array.Length;
-    double R = Math.Round(N / 2, MidpointRounding.AwayFromZero);
-    int N1 = Convert.ToInt32(N);
-    int R1 = Convert.ToInt32(R);
-    int[] array2 = new int[R1];
-    for(int i = 0; i < R1; i++)
+    int[] res = new int[size];
+    for(int i = 0; i < size; i++)
     {
-        if(i != (N1 - i - 1))
-        {
-            array2[i] = array[i] * array[N1 - i - 1];
-        }
-        else
-        {
-            array2[i] = array[i];
-        }
+        res[i] = new Random().Next(minValue, maxValue + 1);
     }
-    return array2;
+    return res;
+}
+
+ void SortingArray (int[] array)
+{
+	for (int i = 0; i < array.Length; i++)
+		{
+            for (int j = 0; j < array.Length - 1; j++)
+			{
+                if (array[j] > array[j + 1])
+					{
+						int temp = array[j + 1];
+						array[j + 1] = array[j];
+						array[j] = temp;
+					}
+		    }
+        }
+    System.Console.WriteLine($"[{String.Join(",", array)}]");
 }
